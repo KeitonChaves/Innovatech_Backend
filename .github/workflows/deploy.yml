@@ -80,10 +80,13 @@ jobs:
             # Ir al directorio del proyecto en EC2
             cd ~/Innovatech_Backend
 
+            # Apuntar al fork correcto
+            git remote set-url origin https://github.com/MatiDroid21/Innovatech_Backend.git
+
             # Actualizar el código
             git pull origin deploy
 
-            # Crear .env si no existe (usa los secrets de GitHub como variables de entorno)
+            # Crear .env
             cat > .env <<EOF
             DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}
             DB_NAME=${{ secrets.DB_NAME }}
